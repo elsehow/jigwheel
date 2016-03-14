@@ -19,8 +19,6 @@ the first trick is [browserify-hmr](https://www.npmjs.com/package/browserify-hmr
 
 /a la/ figwheel, we `defonce` our application state, which allows it to persist as we edit and reload our view code. we also `defonce` a `dispatcher`, a global event emitter to which our whole application can listen and emit events.
 
-personally, i make sure views only listen to disptacher. actions mutate the defonced state. but, i am not a dogmatic type of person. do as you please, live code away --nick
-
 ## license
 
 BSD

@@ -1,19 +1,15 @@
 var h = require('virtual-dom/h')
-var dispatcher = require('./dispatcher.js')
 
+module.exports = (store) => {
+  // a render fn that returns hyperscript
+  return function render (state) {
+    return h('div', [
+      h('h1', `clicked ${state} times`),
+      h('button', { onclick: handleClick }, 'click')
+    ])
 
-// a render fn that returns hyperscript
-function render (state) {
-  return h('div', [
-    h('h1', `clicked ${state.n} times`),
-    h('button', { onclick: handleClick }, 'click')
-  ])
-
-  function handleClick (ev) {
-    dispatcher.emit('button-click', ev)
-  }
+    function handleClick (ev) {
+      store.dispatch({type: 'INCREMENT'})
+    }
 }
-
-// this module returns this fn
-module.exports = render
-
+}
