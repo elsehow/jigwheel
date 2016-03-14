@@ -1,10 +1,10 @@
 {
   "main": "index.js",
   "scripts": {
-    "watch": "watchify -vd -p browserify-hmr index.js -o bundle.js",
-    "start": "ecstatic --cache 1 --port 9999",
+    "watch": "watchify -vd -p browserify-hmr src/index.js -o static/bundle.js",
+    "start": "ecstatic static --cache 1 --port 9999",
     "dev": "npm run watch & npm start",
-    "build": "browserify index.js | java -jar compiler.jar --language_out=ES5 > bundle.js; html-inline -i index.html -o dist/index.html"
+    "build": "browserify src/index.js | java -jar compiler.jar --language_out=ES5 > static/bundle.js; html-inline -i static/index.html -o dist/index.html"
   },
   "author": "elsehow",
   "license": "BSD-2-Clause",
